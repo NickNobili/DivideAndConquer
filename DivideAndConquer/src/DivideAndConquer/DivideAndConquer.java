@@ -8,11 +8,13 @@ public class DivideAndConquer
 
     public int DivideAndConquer(int[] a, int[] b, int n)
     {
+        //initializing the variables
         int l = 0;
         int r = 0;
         int result =0;
         int side=1;
 
+        //in the case that n is 0
         if (n==0)
             if (a[0] <= b[0])
                 result=a[0];
@@ -22,12 +24,10 @@ public class DivideAndConquer
         {
             for (int i = 0; i < n; i++)
             {
-                System.out.println("LEFT"+l);
-                System.out.println("RIGHT"+r);
-
+                //if one of the lists runs out on one of the sides
                 if ((b.length < (r)) || (a.length < (l)))
                 {
-                    System.out.println("RIGHT"+r+"LEFT"+l);
+                    //if the left still has numbers
                     if (b.length < (r))
                     {
                         l++;
@@ -41,33 +41,36 @@ public class DivideAndConquer
 
 
                 }
-                else if (a[l] >= b[r])
+                else
                 {
-                    System.out.println("RIGHT test");
-                    r++;
-                    side = 1;
+                    //if the right is smaller or the same as the left
+                    if (a[l] >= b[r])
+                    {
+
+                        r++;
+                        side = 1;
+                    }
+                    else
+                    {
+
+                        l++;
+                        side = 0;
+                    }
                 }
-                else if (a[l] > b[r])
-                {
-                    System.out.println("LEFT test");
-                    l++;
-                    side = 0;
-                }
-                System.out.println(side);
+
             }
-            System.out.println("done");
-            System.out.println(side);
-            System.out.println(r);
+            //if the left was the last number
             if (side == 0)
             {
                 result = a[l-1];
-                System.out.println("a");
-            }
 
+            }
+            //if the right was the last number
             else if (side ==1)
             {
+
                 result = b[r-1];
-                System.out.println("b");
+
             }
         }
         return result;

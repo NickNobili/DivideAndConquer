@@ -8,7 +8,7 @@ public class Client
     {
         int[] a = {2,3,5,7,34};
         int[] b = {7,13,20};
-        int n = 2;
+        int n = 1;
         int nth = new DivideAndConquer().DivideAndConquer(a,b,n);
 
         //if (nth = null)
